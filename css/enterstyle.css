@@ -1,0 +1,23 @@
+body{
+    margin:20px;
+    text-align:center;
+    background-color:#f5deb3;
+    font-size:30px;
+}
+input,select{
+    margin-bottom:30px;
+
+}
+.con{
+    margin-bottom:30px;
+}
+
+input[type=submit]{
+    padding: 15px 50px;
+    font-size: 100%;
+	color:#fff;
+	cursor: pointer;
+	border:none;
+	border-radius: 3px;
+	background: #000;
+}
