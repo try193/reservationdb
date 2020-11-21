@@ -4,12 +4,24 @@ body{
     background-color:#f5deb3;
     font-size:30px;
 }
-input,select{
-    margin-bottom:30px;
 
+table{
+  margin:30px auto;
+}
+tr{
+  margin-bottom:20px;
+}
+th{
+  text-align: left;
+}
+.confirm_contain{
+  margin-left: 35%;
+  width: 50%;
+  
 }
 .con{
-    margin-bottom:30px;
+  margin-bottom:30px;
+  text-align: left;
 }
 
 input[type=submit]{
@@ -19,5 +31,6 @@ input[type=submit]{
 	cursor: pointer;
 	border:none;
 	border-radius: 3px;
-	background: #000;
+  background: #000;
+  
 }

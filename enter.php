@@ -94,16 +94,19 @@ if (!empty($_POST['back'])) {
     </div>
 
   <?php elseif ($page_flag === 1) : ?>
+    <h1>入力内容</h1>
     <form method="post" action="">
-      <h1>入力内容</h1>
 
-      <div class="con">名前：<?php echo $_POST['name']; ?></div>
-      <div class="con">住所：<?php echo $_POST['add']; ?></div>
-      <div class="con">電話番号：<?php echo $_POST['tell']; ?></div>
-      <div class="con">メールアドレス：<?php echo $_POST['mail']; ?></div>
-      <div class="con">宿泊人数：<?php echo $_POST['member']; ?>人</div>
-      <div class="con">宿泊日数：<?php echo $_POST['day']; ?>日</div>
+      <div class="confirm_contain">
+        <div class="con">名前：<?php echo $_POST['name']; ?></div>
+        <div class="con">住所：<?php echo $_POST['add']; ?></div>
+        <div class="con">電話番号：<?php echo $_POST['tell']; ?></div>
+        <div class="con">メールアドレス：<?php echo $_POST['mail']; ?></div>
+        <div class="con">宿泊人数：<?php echo $_POST['member']; ?>人</div>
+        <div class="con">宿泊日数：<?php echo $_POST['day']; ?>日</div>
 
+
+      </div>
       <input type="submit" name="submit" value="予約">
       <input type="submit" name="remake" value="修正">
 
@@ -113,6 +116,7 @@ if (!empty($_POST['back'])) {
       <input type="hidden" name="mail" value="<?php echo $_POST['mail']; ?>">
       <input type="hidden" name="member" value="<?php echo $_POST['member']; ?>">
       <input type="hidden" name="day" value="<?php echo $_POST['day']; ?>">
+
 
 
     </form>
@@ -161,37 +165,63 @@ if (!empty($_POST['back'])) {
 
     <form method="POST" onsubmit="return check(this)" action="">
 
-      <div>名前 <input type="text" name="name" value="<?php if (!empty($_POST['name'])) {
-                                                      echo $_POST['name'];
-                                                    } ?>"></div>
-      <div>住所 <input type="text" name="add" value="<?php if (!empty($_POST['add'])) {
-                                                      echo $_POST['add'];
-                                                    } ?>"></div>
-      <div>電話番号 <input type="text" name="tell" value="<?php if (!empty($_POST['tell'])) {
-                                                        echo $_POST['tell'];
-                                                      } ?>"></div>
-      <div>メールアドレス <input type="text" name="mail" value="<?php if (!empty($_POST['mail'])) {
-                                                            echo $_POST['mail'];
-                                                          } ?>"></div>
-      <div>宿泊人数
-        <select name="member">
-          <option value="">選択してください</option>
-          <?php for ($i = 1; $i <= 10; $i++) { ?>
-            <option value="<?php echo $i ?>"><?php echo $i . '人' ?></option>
-          <?php } ?>
-        </select>
+      <table>
+        <tr>
+          <th>名前</th>
+          <th>
+            <input type="text" name="name" value="<?php if (!empty($_POST['name'])) {
+                                                    echo $_POST['name'];
+                                                  } ?>">
+          </th>
+        </tr>
+        <tr>
+          <th>住所</th>
+          <th>
+            <input type="text" name="add" value="<?php if (!empty($_POST['add'])) {
+                                                    echo $_POST['add'];
+                                                  } ?>">
+          </th>
+        </tr>
+        <tr>
+          <th>電話番号</th>
+          <th>
+            <input type="text" name="tell" value="<?php if (!empty($_POST['tell'])) {
+                                                    echo $_POST['tell'];
+                                                  } ?>">
+          </th>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <th>
+            <input type="text" name="mail" value="<?php if (!empty($_POST['mail'])) {
+                                                    echo $_POST['mail'];
+                                                  } ?>">
+          </th>
+        </tr>
+        <tr>
+          <th>宿泊人数</th>
+          <th>
+            <select name="member">
+              <option value="">選択してください</option>
+              <?php for ($i = 1; $i <= 10; $i++) { ?>
+                <option value="<?php echo $i ?>"><?php echo $i . '人' ?></option>
+              <?php } ?>
+            </select>
+          </th>
+        </tr>
+        <tr>
+          <th>宿泊日数</th>
+          <th>
+            <select name="day">
+              <option value="">選択してください</option>
+              <?php for ($i = 1; $i <= 10; $i++) { ?>
+                <option value="<?php echo $i ?>"><?php echo $i . '日' ?></option>
+              <?php } ?>
+            </select>
+          </th>
+        </tr>
 
-      </div>
-      <div>宿泊日数
-        <select name="day">
-          <option value="">選択してください</option>
-          <?php for ($i = 1; $i <= 10; $i++) { ?>
-            <option value="<?php echo $i ?>"><?php echo $i . '日' ?></option>
-          <?php } ?>
-        </select>
-
-      </div>
-
+      </table>
 
       <div><input type="submit" name="comfirm" value="入力内容を確認"></div>
     </form>
