@@ -8,13 +8,22 @@
     include('container/mail_setting.php');
     include('container/data_setting.php');
   }
-  if (!empty($_POST['remake'])) {
+  if (!empty($_POST['modify'])) {
     $page_flag = 0;
   }
   if (!empty($_POST['back'])) {
     $page_flag = 0;
     $_POST = null;
   }
+  if (!empty($_POST['data_admin'])) {
+    $page_flag = 3;
+    $_POST = null;
+  }
+  if (!empty($_POST['data_modify'])) {
+    $page_flag = 4;
+    $_POST = null;
+  }
+  
 ?>
 
 <!DOCTYPE HTML>
@@ -30,21 +39,41 @@
   <title>宿泊予約サイト</title>
 </head>
 <body>
-  <?php if ($page_flag === 2) : ?>
-    <?php include('container/complete.php'); ?>
+  <header>
+    <form method="post" action="">
+      <input type="submit" name="data_admin" value="データ管理">
+    </form>
+    <form method="post" action="">
+      <input type="submit" name="data_modify" value="データ修正">
+    </form>
+  </header>
 
-  <?php elseif ($page_flag === 1) : ?>
-    <?php include('container/confirm.php'); ?>
+  <main>
+    <?php if ($page_flag === 4) : ?>
+      <?php include('container/admin/modify.php'); ?>
 
-  <?php else : ?>
-   <?php include('container/enter.php'); ?>
+    <?php elseif ($page_flag === 3) : ?>
+      <?php include('container/admin/admin.php'); ?>
 
-  <?php endif; ?>
-
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
+    <?php elseif ($page_flag === 2) : ?>
+      <?php include('container/complete.php'); ?>
+  
+    <?php elseif ($page_flag === 1) : ?>
+      <?php include('container/confirm.php'); ?>
+  
+    <?php else : ?>
+    <?php include('container/enter.php'); ?>
+  
+    <?php endif; ?>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+      
+      
+  </main>
+    
 </body>
-
+    
+    
 </html>

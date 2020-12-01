@@ -11,8 +11,8 @@
 
 
       </div>
-      <input type="submit" name="submit" value="予約">
-      <input type="submit" name="remake" value="修正">
+      <input class="push" type="submit" name="submit" value="予約">
+      <input class="push" type="submit" name="modify" value="修正">
 
       <input type="hidden" name="name" value="<?php echo $_POST['name']; ?>">
       <input type="hidden" name="add" value="<?php echo $_POST['add']; ?>">

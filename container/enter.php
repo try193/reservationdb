@@ -100,5 +100,5 @@
 
 </table>
 
-<div><input type="submit" name="comfirm" value="入力内容を確認"></div>
+<div><input class="push" type="submit" name="comfirm" value="入力内容を確認"></div>
 </form>

@@ -13,20 +13,22 @@ tr{
 }
 th{
   text-align: left;
+  padding-bottom: 20px;
+  padding-right: 20px;
 }
 .confirm_contain{
   margin-left: 35%;
-  width: 50%;
-  
+  width: 60%;
+
 }
 .con{
   margin-bottom:30px;
   text-align: left;
 }
 
-input[type=submit]{
-    padding: 15px 50px;
-    font-size: 100%;
+.push{
+  padding: 15px 50px;
+  font-size: 100%;
 	color:#fff;
 	cursor: pointer;
 	border:none;
