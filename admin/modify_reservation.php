@@ -28,6 +28,6 @@
 ?>
 
 <form method="post" action="admin_reservation.php">
-  <input type="submit" name="back" value="データ管理画面に戻る">
+  <input type="submit" value="データ管理画面に戻る">
 </form>
 

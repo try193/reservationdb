@@ -49,7 +49,7 @@
       <?php foreach ($stmt as $row) { ?>
       <!-- データベースのフィールド名で出力 -->
       <tr>
-        <form method="POST" action="modify_reservation.php">
+        <form method="post" action="modify_reservation.php">
           <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
           <th><?php echo $row['id']; ?></th>
           <th><input type="text" name="name" value="<?php echo $row['name']; ?>"></th>
@@ -58,7 +58,7 @@
           <th><input type="text" name="mail" value="<?php echo $row['mail']; ?>"></th>
           <th><input type="text" name="member" value="<?php echo $row['member']; ?>"></th>
           <th><input type="text" name="day" value="<?php echo $row['day']; ?>"></th>
-          <th><input type="submit" name="<?php echo $row['id']; ?>" value="変更"></th>
+          <th><input type="submit" value="変更"></th>
         </form>
       </tr>
     
