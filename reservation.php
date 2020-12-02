@@ -15,14 +15,7 @@
     $page_flag = 0;
     $_POST = null;
   }
-  if (!empty($_POST['data_admin'])) {
-    $page_flag = 3;
-    $_POST = null;
-  }
-  if (!empty($_POST['data_modify'])) {
-    $page_flag = 4;
-    $_POST = null;
-  }
+  
   
 ?>
 
@@ -39,23 +32,9 @@
   <title>宿泊予約サイト</title>
 </head>
 <body>
-  <header>
-    <form method="post" action="">
-      <input type="submit" name="data_admin" value="データ管理">
-    </form>
-    <form method="post" action="">
-      <input type="submit" name="data_modify" value="データ修正">
-    </form>
-  </header>
-
+  
   <main>
-    <?php if ($page_flag === 4) : ?>
-      <?php include('container/admin/modify.php'); ?>
-
-    <?php elseif ($page_flag === 3) : ?>
-      <?php include('container/admin/admin.php'); ?>
-
-    <?php elseif ($page_flag === 2) : ?>
+    <?php if ($page_flag === 2) : ?>
       <?php include('container/complete.php'); ?>
   
     <?php elseif ($page_flag === 1) : ?>
