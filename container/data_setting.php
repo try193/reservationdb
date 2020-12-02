@@ -1,6 +1,6 @@
 <?php 
   try {
-    include('./reservation_data_info.php');
+    include('../reservation_data_info.php');
     $dbh = new PDO($dsn, $user, $password); //MySQLのデータベースに接続
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); //PDOのエラーレポートを表示
 

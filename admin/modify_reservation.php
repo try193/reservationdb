@@ -12,13 +12,13 @@
   }
 
   // UPDATE文を変数に格納
-  $sql = "UPDATE guestinfo SET member=:member, day=:day WHERE id=:id";
+  $sql = "UPDATE guestinfo SET name=:name, address=:address, tell=:tell, mail=:mail member=:member, day=:day WHERE id=:id";
 
   // 更新する値と該当のIDは空のまま、SQL実行の準備をする
   $stmt = $dbh->prepare($sql);
  
   // 更新する値と該当のIDを配列に格納する
-  $params = array(':member' => '3',':day'=>'2', ':id' => '21');
+  $params = array(':name' => $_POST['name'],':address' => $_POST['address'],':tell' => $_POST['tell'],':mail' => $_POST['mail'],':member' => $_POST['member'],':day'=>$_POST['day'], ':id' => $_POST['id']);
  
   // 更新する値と該当のIDが入った変数をexecuteにセットしてSQLを実行
   $stmt->execute($params);
@@ -27,7 +27,7 @@
   echo '更新完了しました';
 ?>
 
-<form method="post" action="">
+<form method="post" action="admin_reservation.php">
   <input type="submit" name="back" value="データ管理画面に戻る">
 </form>
 

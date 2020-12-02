@@ -17,16 +17,6 @@
   $stmt = $dbh->query($sql);
 ?>
 
-<?php
-  $page_flag = 0;
-  if (!empty($_POST['data_modify'])) {
-    $page_flag = 1;
-  }
-  if (!empty($_POST['back'])) {
-    $page_flag = 0;
-  }
-?>
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -44,44 +34,37 @@
   <title>宿泊予約データ管理</title>
 </head>
 <body>
-      <form method="post" action="">
-            <input type="submit" name="data_modify" value="データ修正">
-      </form>
+    <table>
+      <tr>
+        <th>id</th>
+        <th>名前</th>
+        <th>住所</th>
+        <th>電話番号</th>
+        <th>メールアドレス</th>
+        <th>宿泊人数</th>
+        <th>宿泊日数</th>
+      </tr>
       
-      <?php if ($page_flag === 1) : ?>
-        <?php include('modify_reservation.php'); ?>
-      
-      <?php else : ?>
-        <table>
-          <tr>
-            <th>id</th>
-            <th>名前</th>
-            <th>住所</th>
-            <th>電話番号</th>
-            <th>メールアドレス</th>
-            <th>宿泊人数</th>
-            <th>宿泊日数</th>
-          </tr>
-          
-          <!-- foreach文で配列の中身を一行ずつ出力 -->
-          <?php foreach ($stmt as $row) { ?>
-          <!-- データベースのフィールド名で出力 -->
-          <tr>
-            <th><?php echo $row['id']; ?></th>
-            <th><?php echo $row['name']; ?></th>
-            <th><?php echo $row['address']; ?></th>
-            <th><?php echo $row['tell']; ?></th>
-            <th><?php echo $row['mail']; ?></th>
-            <th><?php echo $row['member']; ?></th>
-            <th><?php echo $row['day']; ?></th>
-          </tr>
-        
-          <?php } ?>
-        
-        </table>
-        
-      
-      <?php endif; ?>
+      <!-- foreach文で配列の中身を一行ずつ出力 -->
+      <?php foreach ($stmt as $row) { ?>
+      <!-- データベースのフィールド名で出力 -->
+      <tr>
+        <form method="POST" action="modify_reservation.php">
+          <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+          <th><?php echo $row['id']; ?></th>
+          <th><input type="text" name="name" value="<?php echo $row['name']; ?>"></th>
+          <th><input type="text" name="address" value="<?php echo $row['address']; ?>"></th>
+          <th><input type="text" name="tell" value="<?php echo $row['tell']; ?>"></th>
+          <th><input type="text" name="mail" value="<?php echo $row['mail']; ?>"></th>
+          <th><input type="text" name="member" value="<?php echo $row['member']; ?>"></th>
+          <th><input type="text" name="day" value="<?php echo $row['day']; ?>"></th>
+          <th><input type="submit" name="<?php echo $row['id']; ?>" value="変更"></th>
+        </form>
+      </tr>
+    
+      <?php } ?>
+    
+    </table>
   
 </body>
 </html>
