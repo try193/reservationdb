@@ -12,7 +12,7 @@
   }
 
   // UPDATE文を変数に格納
-  $sql = "UPDATE guestinfo SET name=:name, address=:address, tell=:tell, mail=:mail member=:member, day=:day WHERE id=:id";
+  $sql = "UPDATE guestinfo SET name=:name, address=:address, tell=:tell, mail=:mail, member=:member, day=:day WHERE id=:id";
 
   // 更新する値と該当のIDは空のまま、SQL実行の準備をする
   $stmt = $dbh->prepare($sql);
@@ -25,6 +25,13 @@
   
   // 更新完了のメッセージ
   echo '更新完了しました';
+  echo var_dump($_POST['id']);
+  echo var_dump($_POST['name']);
+  echo var_dump($_POST['address']);
+  echo var_dump($_POST['tell']);
+  echo var_dump($_POST['mail']);
+  echo var_dump($_POST['member']);
+  echo var_dump($_POST['day']);
 ?>
 
 <form method="post" action="admin_reservation.php">

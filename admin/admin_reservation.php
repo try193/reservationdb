@@ -60,6 +60,10 @@
           <th><input type="text" name="day" value="<?php echo $row['day']; ?>"></th>
           <th><input type="submit" value="変更"></th>
         </form>
+        <form method="post" action="delite_reservation.php">
+          <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+          <th><input type="submit" value="削除"></th>
+        </form>
       </tr>
     
       <?php } ?>
