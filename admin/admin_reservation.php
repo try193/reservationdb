@@ -53,11 +53,11 @@
           <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
           <th><?php echo $row['id']; ?></th>
           <th><input type="text" name="name" value="<?php echo $row['name']; ?>"></th>
-          <th><input type="text" name="address" value="<?php echo $row['address']; ?>"></th>
+          <th><input type="text" name="address" size='30' value="<?php echo $row['address']; ?>"></th>
           <th><input type="text" name="tell" value="<?php echo $row['tell']; ?>"></th>
-          <th><input type="text" name="mail" value="<?php echo $row['mail']; ?>"></th>
-          <th><input type="text" name="member" value="<?php echo $row['member']; ?>"></th>
-          <th><input type="text" name="day" value="<?php echo $row['day']; ?>"></th>
+          <th><input type="text" name="mail" size='30' value="<?php echo $row['mail']; ?>"></th>
+          <th><input type="text" name="member" size='5' value="<?php echo $row['member']; ?>"></th>
+          <th><input type="text" name="day" size='5' value="<?php echo $row['day']; ?>"></th>
           <th><input type="submit" value="変更"></th>
         </form>
         <form method="post" action="delite_reservation.php">
